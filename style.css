@@ -29,6 +29,10 @@ header {
   color: hsl(206, 17%, 28%);
 }
 
+main {
+  color: black;
+}
+
 .card {
   background-color: hsl(0, 0%, 100%);
   border-radius: 5px;
@@ -103,7 +107,7 @@ h3 {
     0px;
   color: hsl(0, 0%, 100%);
   display: inline-block;
-  font-size: 16px;
+  font-size: 11px;
   line-height: 11px;
   margin: 16px 16px 16px 16px;
   padding: 14px 14px;
@@ -115,6 +119,62 @@ h3 {
   border-radius: 10px;
   box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 6px 0px rgba(0, 0, 0, 0.2) 0px 1px 1px
     0px;
+  color: hsl(0, 0%, 100%);
+  display: inline-block;
+  font-size: 16px;
+  line-height: 11px;
+  margin: 16px 16px 16px 16px;
+  padding: 14px 14px;
+  text-align: center;
+  cursor: pointer;
+}
+
+#button0 {
+  border: none;
+  background-color: rgb(19, 8, 175);
+  border-radius: 10px;
+  color: hsl(0, 0%, 100%);
+  display: inline-block;
+  font-size: 16px;
+  line-height: 11px;
+  margin: 16px 16px 16px 16px;
+  padding: 14px 14px;
+  text-align: center;
+  cursor: pointer;
+}
+
+#button1 {
+  border: none;
+  background-color: rgb(19, 8, 175);
+  border-radius: 10px;
+  color: hsl(0, 0%, 100%);
+  display: inline-block;
+  font-size: 16px;
+  line-height: 11px;
+  margin: 16px 16px 16px 16px;
+  padding: 14px 14px;
+  text-align: center;
+  cursor: pointer;
+}
+
+#button2 {
+  border: none;
+  background-color: rgb(19, 8, 175);
+  border-radius: 10px;
+  color: hsl(0, 0%, 100%);
+  display: inline-block;
+  font-size: 16px;
+  line-height: 11px;
+  margin: 16px 16px 16px 16px;
+  padding: 14px 14px;
+  text-align: center;
+  cursor: pointer;
+}
+
+#button3 {
+  border: none;
+  background-color: rgb(19, 8, 175);
+  border-radius: 10px;
   color: hsl(0, 0%, 100%);
   display: inline-block;
   font-size: 16px;
