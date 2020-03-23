@@ -1,6 +1,5 @@
 var timeEl = document.querySelector(".time");
-
-
+var beginEl = document.querySelector("#begin");
 var secondsLeft = 99;
 
 function setTime() {
@@ -10,9 +9,12 @@ function setTime() {
 
     if(secondsLeft === 0) {
       clearInterval(timerInterval);
-      alert("Game Over - Your score is " + secondsLeft)
+      alert("Game Over")
     }
-
   }, 1000);
 }
-setTime()
+
+beginEl.addEventListener("click", function() {
+  document.getElementById("begin").style.visibility='hidden';
+  setTime();
+});

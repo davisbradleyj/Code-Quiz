@@ -4,10 +4,18 @@ Strategy:
 
 Initial design
 
-two pages: index page, and quiz page
+quiz
 counter top right (h4 sized?)
 10 question quiz
 high score determined by time remaining - store to to DOM, per Friday 3/21 lesson
+create button to start game
+create button to refresh high score
+cards for each question block
+
+Layout
+Button to begin quiz
+> On click, begin quiz
+> Hide button
 
 Card 1 - Question 1:
 Who was the 42nd President of the United States:
@@ -78,3 +86,14 @@ Chicago
 Peoria
 Springfield
 Bloomington
+
+
+Question right +10
+Question wrong -5
+
+if wrong {
+    function wrong()
+        secondsLeft -= 10
+} else {
+    console.log{secondLeft}
+}
