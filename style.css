@@ -38,6 +38,7 @@ header {
   font-size: 18px;
   margin: 0 auto;
   max-width: 800px;
+  height: 250px;
   padding: 30px 40px;
 }
 
@@ -72,6 +73,42 @@ header {
   clear: both;
 }
 
+.center {
+  text-align: center;
+}
+
+h3 {
+  align: center; 
+}
+
+#restart { 
+  border: none;
+  background-color: rgb(19, 8, 175);
+  border-radius: 10px;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 6px 0px rgba(0, 0, 0, 0.2) 0px 1px 1px
+    0px;
+  color: hsl(0, 0%, 100%);
+  display: inline-block;
+  font-size: 16px;
+  line-height: 11px;
+  margin: 16px 16px 16px 16px;
+  padding: 14px 14px;
+}
+
+#resethigh { 
+  border: none;
+  background-color: rgb(19, 8, 175);
+  border-radius: 10px;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 6px 0px rgba(0, 0, 0, 0.2) 0px 1px 1px
+    0px;
+  color: hsl(0, 0%, 100%);
+  display: inline-block;
+  font-size: 16px;
+  line-height: 11px;
+  margin: 16px 16px 16px 16px;
+  padding: 14px 14px;
+}
+
 #begin {
   border: none;
   background-color: rgb(19, 8, 175);
@@ -80,7 +117,7 @@ header {
     0px;
   color: hsl(0, 0%, 100%);
   display: inline-block;
-  font-size: 11px;
+  font-size: 16px;
   line-height: 11px;
   margin: 16px 16px 16px 16px;
   padding: 14px 14px;
