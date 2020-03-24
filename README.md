@@ -90,3 +90,12 @@ if wrong {
 } else {
     console.log{secondLeft}
 }
+
+To Do
+Onclick listener - answers
+account for last question
+ask question (function) 
+- to pass to next question
+- logic to determine valid answer
+- decreasing time for incorrect
+- 
