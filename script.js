@@ -10,32 +10,41 @@ var answer2El = document.querySelector("#answer2");
 var answer3El = document.querySelector("#answer3");
 var questions = [
   {question: "Who was the 42nd President of the United States",
-   answer: ["George H.W. Bush", "Bill Clinton", "Barack Obama", "George W. Bush"],
+   answer: ["George H.W. Bush", "Bill Clinton", "George W. Bush", "Barack Obama"],
    correct: "Bill Clinton",
   },
   {question: "When was D-Day?",
    answer: ["4 June 1944","5 June 1944","6 June 1944","7 June 1944"],
    correct: "6 June 1944",
   },
-  {
-
+  {question: "If you fly due east from South Africa, what is the next country you would fly over?",
+   answer: ["Madagascar", "Indonesia", "New Zealand", "Australia"],
+   correct: "Australia",
   },
-  {
-
+  {question: "England calls these 'pants,' but in the USA they are know as...?",
+   answer: ["Trousers", "Underwear", "Jumper", "Socks"],
+   correct: "Underwear",
   },
-  {
-
+  {question: "Who is the current President of the United States Senate?",
+   answer: ["Mitch McConnell", "Mike Pence", "Chuck Schumer", "Nancy Pelosi"],
+   correct: "Mike Pence",
   },
-  {
-
+  {question: "Where did Covid-19 originate (supposedly)?",
+   answer: ["Wuhan", "Beijing", "Guangzhou", "Chengdu"],
+   correct: "Wuhan",
   },
-  {
-
+  {question: "What is the Atomic Number of Carbon?",
+   answer: ["5", "6", "7", "8"],
+   correct: "6",
   },
-  {
-
+  {question: "How many Super Bowls have the San Francisco 49ers won?",
+   answer: ["3", "4", "5", "6"],
+   correct: "5"
   },
-
+  {question: "What is the capital of Illinois?",
+   answer: ["Chicago", "Peoria", "Springfield", "Bloomington"],
+   correct: "Springfield",
+  }
 ]
 var index = 0
 // var highScore = localStorage.setItem("#highScore");
@@ -61,7 +70,7 @@ beginEl.addEventListener("click", function (event) {
   document.getElementById("qblock").style.visibility='visible';
   console.log("I was clicked");
   setTime();
-  game(index);
+  game(event);
 });
 
 function game() {
@@ -78,25 +87,19 @@ function game() {
   } else {
     endGame()
   }
-
-  
-    if ((questions.correct) != "Bill Clinton") {
-    secondsLeft -= -10
-    } else {
-    console.log(question.correct)
-    }
 }
 
-
-
 function checkAnswer() {
-  answersEl.addEventListener("click", function () {
+  answersEl.addEventListener("click", function (event) {
+    event.preventDefault();
     console.log("check answer clicked")
-    var userSelection = event.target;
-    if (userSelection != questions[index].correct) {
-      secondsLeft -= -10
-    } else {
+    var element = event.target;
+    if (element.matches("button") === true){
+      if (element != question[index].correct){
+        secondsLeft -= -10
+      } else {
       console.log("correct answer");
+      }    
     }
   }); return 
 } 
@@ -104,4 +107,3 @@ function checkAnswer() {
 
 function endGame() {
 }
-
