@@ -4,6 +4,7 @@ var restartEl = document.querySelector("#restart");
 var resethighEl = document.querySelector("#resethigh");
 var qblockEl = document.querySelector("#qblock");
 var questionEl = document.querySelector("#question");
+var buttonEl = document.querySelector("button.button");
 var answersEl = document.querySelector("#answers");
 var answer0El = document.querySelector("#answer0");
 var answer1El = document.querySelector("#answer1");
@@ -91,19 +92,13 @@ function game() {
   answer1El.textContent = questions[index].answer[1];
   answer2El.textContent = questions[index].answer[2];
   answer3El.textContent = questions[index].answer[3];
-  checkAnswer();
 
-  if (index < questions.length) {
-    game(index++)
-  } else {
-    endGame()
-  }
-}
+};
 
-function checkAnswer() {
-  answersEl.addEventListener("click", function (event) {
-    event.preventDefault();
+document.addEventListener("click", function(event) {
+  if (event.target === buttonEl) {
     console.log("check answer clicked")
+
     // stuck - not able to connect the selected button to validate
     var element = event.target;
     if (element.matches(questions[index].correct) != true) {
@@ -111,10 +106,15 @@ function checkAnswer() {
       } else {
         console.log("correct answer");
       }
-    }); return
-  };
-
-
+      
+    if (index < questions.length) {
+      index++
+      game()
+      } else {
+      endGame() 
+    }
+    }; 
+  })
 
 function endGame() {
   document.getElementById("qblock").style.visibility = 'hidden';
