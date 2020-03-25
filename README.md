@@ -1,6 +1,38 @@
 # Code-Quiz
 
 
+## Technologies Used
+- HTML - used to create elements on the DOM
+- CSS - present to add styling elements
+- JavaScript - used to create the logic controlling the application
+- Git - version control system to track changes to source code
+- GitHub - hosts repository that can be deployed to GitHub Pages
+
+## Summary
+
+This one definitely kicked my read-end. I hit a wall with the getting the questions to render over my id tags, and really need to give a hat tip to Stephon Autrey for his time in helping me see some other options I had not conisdered, and to Kerwin Hy for providing some guidance in reworking some of the code to follow better JS logic which had been blocking the elements from working correctly.
+
+Setting the majority of the pointer, global elements, and some of the more basic level functions and features did not pose as large an issue.  Getting and storing the high score was similarly not as big an obstacle.
+
+
+
+
+## Code Snippet
+
+
+
+
+## Acknowledgements
+
+Jerome Chenette, Kerwin Hy, Mahisha Manikandan, Alex Kwaitkowski, Corbin Brockbank, Stephon Autrey, Kasey Chang, Dan Fellows
+
+## Author Links
+
+Brad Davis
+[Email](davis.bradleyj@gmail.com)
+[LinkedIn](https://www.linkedin.com/in/brad-davis-7885884/)
+[GitHub](https://github.com/davisbradleyj)
+
 
 Strategy:
 
@@ -18,80 +50,6 @@ Layout
 Button to begin quiz
 > On click, begin quiz
 > Hide button
-
-Card 1 - Question 1:
-Who was the 42nd President of the United States:
-Barack Obama
-Bill Clinton  X
-George H. W. Bush
-George W. Bush
-
-Card 2 - Question 2:
-When was D-Day?
-4 June 1944
-5 June 1944
-6 June 1944  X
-7 June 1944
-
-Card 3 - Question 3:
-If you fly due east from South Africa, what is the next country you would fly over?
-Madagascar
-Indonesia
-New Zealand
-Australia  X
-
-Card 4 - Question 4:
-In England, what are "pants" known as?
-Trousers
-Underwear  X
-Jumper
-Socks
-
-Card 5 - Question 5:
-Who is the current President of the United States Senate?
-Mitch McConnell
-Mike Pence  X
-Chuck Schumer
-Nancy Pelosi
-
-Card 6 - Question 6:
-Where did Covid-19 originate (supposedly)?
-Wuhan  X 
-Beijin
-Guangzhou
-Chengdu
-
-Card 7 - Question 7:
-What is the Atomic Number of Carbon?
-5
-6  X
-7
-8
-
-Card 8 - Question 8:
-How many Super Bowls have the San Francisco 49ers won?
-3
-4
-5  X
-6
-
-Card 9 - Question 9:
-What is the capital of Illinois?
-Chicago
-Peoria
-Springfield  X
-Bloomington
-
-
-Question right +10
-Question wrong -5
-
-if wrong {
-    function wrong()
-        secondsLeft -= 10
-} else {
-    console.log{secondLeft}
-}
 
 To Do
 Onclick listener - answers
