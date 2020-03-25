@@ -1,7 +1,7 @@
 // set pointers, questions, answers, correct responses, and other global variables which can be accessed by all functions
 
 var timeEl = document.querySelector("#time");
-var highScore;
+var highScoreEl = document.querySelector("#highscore")
 var gameScore = document.querySelector("#gamescore");
 var beginEl = document.querySelector("#begin");
 var restartEl = document.querySelector("#restart");
@@ -64,18 +64,20 @@ var questions = [
 var index = 0;
 var timerInterval;
 var secondsLeft = 60;
+var highScore = [];
 
-//function to set the high score, if applicable/appropriate/anyone else takes this quiz, pulling from local storage
+// function to set the high score, if applicable/appropriate/anyone else takes this quiz, pulling from local storage
+function initial() {
+  document.getElementById("highscore").textContent = localStorage.getItem("highscore");
+  var initScore = (document.getElementById("highscore").textContent);
+  highScore = initScore.substr(2);
+  console.log(highScore)
+  };
+
+
 initial()
 
-function initial() {
-  if ((JSON.parse(localStorage.getItem("newHighScore"))) !== null) {
-  document.getElementById("highscore").textContent = JSON.parse(localStorage.getItem("newHighScore"));
-  highScore = document.getElementById("highscore").value
-  }
-};
-
-//prompts the timer, with some console logging to trigger any failure, and console my imposter syndrome
+// prompts the timer, with some console logging to trigger any failure, and console my imposter syndrome
 function setTime() {
   console.log("set time ran")
   timerInterval = setInterval(function () {
@@ -85,6 +87,7 @@ function setTime() {
     if (secondsLeft <= 0) {
       clearInterval(timerInterval);
       alert("Game Over")
+      endGame();
     }
   }, 1000);
 };
@@ -152,20 +155,21 @@ resethighEl.addEventListener("click", function (event) {
   localStorage.clear(event);
 });
 
-// stores the new hight score
+// stores the new/high score
 function storeHigh() {
- if (highScore != null) {
-    if (secondsLeft > highScore) {
-    var initials = confirm("What are your initials?")
-    var newHighScore = initials + " : " + secondsLeft
-    console.log(initials + " : " + secondsLeft);
-    localStorage.setItem("newHighscore", JSON.stringify(newHighScore));
-    } else {
-    console.log(initials + " : " + secondsLeft)
-    }
+if ((highScore == 0) || (highScore == null)) {
+  var initials = prompt("What are your initials?");
+  highScore = initials + " " + secondsLeft;
+  localStorage.setItem("highscore", highScore);
+} else { 
+  if (secondsLeft > highScore) {
+    initials = prompt("What are your initials?");
+    highScore = initials + " " + secondsLeft;
+    localStorage.setItem("highscore", highScore)
   } else {
-    highscore = initials + " : " + secondsLeft;
+    console.log("not a new high score")
+    alert("Sorry, gotta do a little better next time!") 
   };
+ };
 };
-
 
