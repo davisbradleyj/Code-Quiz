@@ -10,17 +10,18 @@
 
   <body>
     <div>
-      <h4 class="time"></h4>
+      <h4 id="time"></h4>
     </div>
 
     <div class="wrapper">
       <header>
         <h1>Code Quiz</h1>
-        <h4>High Score: <span id="highscore">0</span></h4>
+        <h4>High Score: <span id="new-highscore">BD : 45</span></h4>
       </header>
       <div class="card">
         <div class="center">
           <h3><span><button id="begin">Begin Quiz</button></span></h3>
+          <p style="visibility: hidden" id="gamescore"> : Game Score</p>
         </div>
         <main id="qblock" style="visibility: hidden;">
           <p id="question"></p>
@@ -32,7 +33,7 @@
           </div>
         </main>
         <div class="center">
-          <h3><span><button style="visibility: hidden" id="restart">Restart</button></span><span><button style="visibility: hidden;" id="resethigh">Reset High Score</button></span> </h3>
+          <h4><span><button style="visibility: hidden" id="restart">Restart</button></span><span><button style="visibility: hidden;" id="resethigh">Reset High Score</button></span> </h4>
         </div>
       </div>
     </div>

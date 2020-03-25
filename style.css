@@ -129,6 +129,10 @@ h3 {
   cursor: pointer;
 }
 
+#gamescore {
+  font-size: 32px;
+}
+
 #button0 {
   border: none;
   background-color: rgb(19, 8, 175);
@@ -194,7 +198,7 @@ button[disabled] {
   float: right;
 }
 
-.time {
+#time {
   float: right;
   padding-right: 15px
 }

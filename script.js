@@ -1,10 +1,14 @@
-var timeEl = document.querySelector(".time");
+// set pointers, questions, answers, correct responses, and other global variables which can be accessed by all functions
+
+var timeEl = document.querySelector("#time");
+var highScore;
+var gameScore = document.querySelector("#gamescore");
 var beginEl = document.querySelector("#begin");
 var restartEl = document.querySelector("#restart");
 var resethighEl = document.querySelector("#resethigh");
 var qblockEl = document.querySelector("#qblock");
 var questionEl = document.querySelector("#question");
-var buttonEl = document.querySelector("button.button");
+var buttonEl = document.querySelectorAll(".button");
 var answersEl = document.querySelector("#answers");
 var answer0El = document.querySelector("#answer0");
 var answer1El = document.querySelector("#answer1");
@@ -57,24 +61,35 @@ var questions = [
     correct: "Springfield",
   }
 ]
-var index = 0
-// var highScore = localStorage.setItem("#highScore");
+var index = 0;
+var timerInterval;
+var secondsLeft = 60;
 
-var secondsLeft = 99;
+//function to set the high score, if applicable/appropriate/anyone else takes this quiz, pulling from local storage
+initial()
 
+function initial() {
+  if ((JSON.parse(localStorage.getItem("newHighScore"))) !== null) {
+  document.getElementById("highscore").textContent = JSON.parse(localStorage.getItem("newHighScore"));
+  highScore = document.getElementById("highscore").value
+  }
+};
+
+//prompts the timer, with some console logging to trigger any failure, and console my imposter syndrome
 function setTime() {
   console.log("set time ran")
-  var timerInterval = setInterval(function () {
+  timerInterval = setInterval(function () {
     secondsLeft--;
     timeEl.textContent = secondsLeft + " seconds remain.";
 
-    if (secondsLeft === 0) {
+    if (secondsLeft <= 0) {
       clearInterval(timerInterval);
       alert("Game Over")
     }
   }, 1000);
-}
+};
 
+//this button gets everything going, initializing the timer function and game function
 beginEl.addEventListener("click", function (event) {
   event.preventDefault();
   document.getElementById("begin").style.visibility = 'hidden';
@@ -82,43 +97,75 @@ beginEl.addEventListener("click", function (event) {
   console.log("I was clicked");
   setTime();
   game(event);
-  // endGame();
 });
 
+// want to play a (guessing) game?
 function game() {
-  console.log("game function ran")
+  console.log("game function ran" + index)
   questionEl.textContent = questions[index].question;
   answer0El.textContent = questions[index].answer[0];
   answer1El.textContent = questions[index].answer[1];
   answer2El.textContent = questions[index].answer[2];
   answer3El.textContent = questions[index].answer[3];
-
 };
 
-document.addEventListener("click", function(event) {
-  if (event.target === buttonEl) {
+// event listener to determine the answer selected for each question in the question game
+buttonEl.forEach(function (answerButton) {
+  answerButton.addEventListener("click", function(event) {
     console.log("check answer clicked")
-
-    // stuck - not able to connect the selected button to validate
     var element = event.target;
-    if (element.matches(questions[index].correct) != true) {
-        secondsLeft -= -10
-      } else {
-        console.log("correct answer");
-      }
-      
-    if (index < questions.length) {
+    if (element.textContent !== questions[index].correct) {
+      console.log("wrong")
+      secondsLeft -= 10
+    } else {
+      console.log("correct answer");
+    }
+    if (index < questions.length - 1) {
       index++
       game()
-      } else {
-      endGame() 
+    } else {
+      clearInterval(timerInterval)
+      endGame()
     }
-    }; 
-  })
+  });
+});
 
+// hide some things, show some things - I mean, "you" would like to get a score for all your effort after all.  Also triggers the high score save function
 function endGame() {
+  document.getElementById("gamescore").textContent = "Score: " + secondsLeft;
   document.getElementById("qblock").style.visibility = 'hidden';
   document.getElementById("restart").style.visibility = 'visible';
   document.getElementById("resethigh").style.visibility = 'visible';
+  document.getElementById("gamescore").style.visibility = 'visible';
+  document.getElementById("time").style.visibility = 'hidden';
+  console.log(secondsLeft)
+  storeHigh()
+};
 
-}
+// restarts game by refreshing page
+restartEl.addEventListener("click", function (event) {
+  location.reload(event)
+});
+
+// resets high score, leaving html default of "BD : 45"
+resethighEl.addEventListener("click", function (event) {
+  localStorage.clear(event);
+});
+
+// stores the new hight score
+function storeHigh() {
+ if (highScore != null) {
+    if (secondsLeft > highScore) {
+    var initials = confirm("What are your initials?")
+    var newHighScore = initials + " : " + secondsLeft
+    console.log(initials + " : " + secondsLeft);
+    localStorage.setItem("newHighscore", JSON.stringify(newHighScore));
+    } else {
+    console.log(initials + " : " + secondsLeft)
+    }
+  } else {
+    highscore = initials + " : " + secondsLeft;
+  };
+};
+
+
