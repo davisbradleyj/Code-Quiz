@@ -16,6 +16,10 @@ Setting the majority of the pointers, global elements, and some of the more basi
 
 My code snippet show some of the code which connects hidden/visible elements, and the logic through which the questions, answers, and correct responses were populated/assessed through the DOM.  The majority of my code is probably still littered with console.log events for points where I was testing the function to ensure success.  I suppose I could clean them out, but I have a feeling I will maybe want to do a review once everything is complete for the course to see how far I have come
 
+<img src="https://github.com/davisbradleyj/Code-Quiz/blob/master/assets/begin.png">
+<img src="https://github.com/davisbradleyj/Code-Quiz/blob/master/assets/question.png">
+<img src="https://github.com/davisbradleyj/Code-Quiz/blob/master/assets/lower_score.png">
+<img src="https://github.com/davisbradleyj/Code-Quiz/blob/master/assets/endgame.png">
 
 ## Code Snippet
 ```html
